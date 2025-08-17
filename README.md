@@ -1,4 +1,4 @@
-# Rock-Paper-scissors
+# Rock-Paper-scissors(A console Game)
 This is a simple Rock paper scissor game built using the Javascript.
 this project is the part of the The odin project curriculum .
 
