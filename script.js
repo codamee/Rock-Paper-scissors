@@ -13,72 +13,44 @@ function getComputerChoice() {
     return computerGuess;
 }
 
-function getHumanChoice() {
-    let userGuess = prompt("Enter Choice :")
-    return userGuess;
-}
-
-
 let userScore = 0
 let computerScore = 0
 function playRound(userChoice, computerChoice) {
-    if (computerChoice == "rock") {
-        if (userChoice == "paper") {
-            userScore = userScore + 1
-            // console.log(userScore, "user")
-        }
-        else if (userChoice == "scissor") {
-            computerScore = computerScore + 1
-            // console.log(computerScore, "computer")
-        }
-        else {
-            // console.log("Draw")
-        }
+    let score = document.querySelector(".score")
+    if (userScore >= 5 || computerScore >= 5) {
+
+        score.innerHTML = userScore > computerScore ? `<b>Congratulations! You won the game! 🎉 your score is ${userScore}🍾🎉 </b>(Reload the page TO play Again)` : `<b>The computer won. Better luck next time. 😔 your score is ${userScore}💔🥺 </b>(Reload the page TO play Again)`
+        return;
     }
-    else if (computerChoice == "paper") {
-        if (userChoice == "scissor") {
-            userScore = userScore + 1
-            // console.log(userScore, "user")
-        }
-        else if (userChoice == "rock") {
-            computerScore = computerScore + 1
-            // console.log(computerScore, "computer")
-        }
-        else {
-            // console.log("Draw")
-        }
+    if (computerChoice == userChoice) {
+        score.innerText = "draw"
     }
-    else if (computerChoice == "scissor") {
-        if (userChoice == "rock") {
-            userScore = userScore + 1
-            // console.log(userScore, "user")
-        }
-        else if (userChoice == "paper") {
-            computerScore = computerScore + 1
-            // console.log(computerScore, "computer")
-        }
-        else {
-            // console.log("Draw")
-        }
+    else if (
+        (computerChoice == "rock" && userChoice == "paper") ||
+        (computerChoice == "paper" && userChoice == "scissor") ||
+        (computerChoice == "scissor" && userChoice == "rock")) {
+        userScore++
+        score.innerText = `You won this round!`
     }
-}
-function playGame() {
-    let rounds = 0
-    while (rounds <= 5) {
-        let userChoice = getHumanChoice()
-        let computerChoice = getComputerChoice()
-        playRound(userChoice, computerChoice)
-        rounds++
+    else {
+        computerScore++
+        score.innerText = `You lost this round!`
     }
-}
-playGame()
-if (computerScore > userScore) {
-    console.log(`Better luck next time .your score is ${userScore},computer score is ${computerScore}`)
+
 }
 
-else if (computerScore < userScore) {
-    console.log("Congratulations!🎉🎉🎉 You won", "your score is ", userScore)
+
+function playGame() {
+    let btns = document.querySelector(".btns")
+    btns.addEventListener("click", (e) => {
+        let userChoice = e.target.id
+        let computerChoice = getComputerChoice()
+        if (userChoice && computerChoice) {
+            playRound(userChoice, computerChoice)
+        }
+    }
+    )
 }
-else {
-    console.log("Draw")
-}
+
+playGame()
+
