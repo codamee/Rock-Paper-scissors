@@ -1,6 +1,5 @@
 # Rock-Paper-scissors
 This is a simple Rock paper scissor game built using the Html and javascript.
-This project is the part of the The odin project curriculum .
 
 ##  Feautures 
 - User has to select the choice (rock,scissor, paper).
