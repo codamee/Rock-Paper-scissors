@@ -1,5 +1,5 @@
 # Rock-Paper-scissors
-This is a simple Rock paper scissor game built using the Html and javascript.
+This is a simple Rock paper scissor game built using the Html and javascript. ***[ [Live Demo](https://codamee.github.io/Rock-Paper-scissors/) ]***
 
 ##  Feautures 
 - User has to select the choice (rock,scissor, paper).
